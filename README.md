@@ -1,0 +1,2 @@
+# Distritales_2026
+Script_encuestas_distritales
