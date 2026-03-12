@@ -2,6 +2,12 @@
 #INICIO-------------------------------------------------------------------------
 gc(rm(list=ls()))
 
+#Instrucción para correr el script con output mínimo en la consola para minimizar el tiempo de ejecución
+#source("DISTRITOS_FEDERALES_TAMPS-8.R", echo = FALSE, verbose = FALSE)
+
+#Iniciador del cronómetro
+starttime <- Sys.time()
+
 #DIRECTORIO---------------------------------------------------------------------
 setwd("C:/Users/LapOne MX/OneDrive/Documents/GobMex/Distritales/TAMPS08_20260303")
 
@@ -5835,3 +5841,7 @@ G89.9_T84_puntaje_actores_nueva <- T84_puntaje_actores_nueva %>% gt()%>%
 G89.9_T84_puntaje_actores_nueva
 gtsave(G89.9_T84_puntaje_actores_nueva,filename = "G9_T84_puntaje_actores_nueva.png", path = "RESULTADOS/GRAFICOS/CAREOS",zoom=4)
 
+#Finalizador del cronómetro
+endtime <- Sys.time()
+runtime <- endtime-starttime
+runtime
