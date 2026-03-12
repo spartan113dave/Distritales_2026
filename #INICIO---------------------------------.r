@@ -19,6 +19,10 @@ estado <- "Tamaulipas" #<⚠️CAMBIAR NOMBRE-----------------
 estado_mayus <- "TAMAULIPAS" #<⚠️CAMBIAR NOMBRE------------
 distrito <- "TAMAULIPAS-8"#<⚠️CAMBIAR NOMBRE-----------
 
+#<-----VECTOR PERSONAJES------>----------------------------------
+personajes <- c("Luis Lauro Reyes Rodríguez","Mónica Villarreal Anaya","Adrián Oseguera Kernion","Jesús Antonio Nader Nasrallah",
+                "José Abdo Schekaiban ", "Rosa María González Azcárraga")
+
 #BIBLIOTECAS--------------------------------------------------------------------
 library(pacman)
 pacman::p_load(readxl,openxlsx,ggplot2,maditr,ggrepel,haven,scales,extrafont,forcats,showtext,magick,tidyr,flextable,
@@ -1212,10 +1216,6 @@ T16_P12_Principal_problema_edo
 #++++++++++++++++++++++++++++++++-----------------------------------------------------------------------------------------------------------------------------------------
 #🦰CAREOS PERSONAJES🦰-------------------------------------------------------------------------------------------------------------------------------------
 #🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️🧍‍♂️--------
-#<-----VECTOR PERSONAJES------>----------------------------------
-
-personajes <- c("Luis Lauro Reyes Rodríguez","Mónica Villarreal Anaya","Adrián Oseguera Kernion","Jesús Antonio Nader Nasrallah","José Abdo Schekaiban ",
-                "Rosa María González Azcárraga")
 
 #✅ CONOCE++++++++++++++++++++++++++++++++++++++++-++++++++++++++++++++++++++------------------------------------------------------------------------------------------------------------
 orden_conoce <- c("Sí","No")
