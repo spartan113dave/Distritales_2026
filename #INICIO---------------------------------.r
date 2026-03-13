@@ -2,14 +2,14 @@
 #INICIO-------------------------------------------------------------------------
 gc(rm(list=ls()))
 
-#Instrucción para correr el script con output mínimo en la consola para minimizar el tiempo de ejecución
-#source("DISTRITOS_FEDERALES_TAMPS-8.R", echo = FALSE, verbose = FALSE)
-
 #Iniciador del cronómetro
 starttime <- Sys.time()
 
 #DIRECTORIO---------------------------------------------------------------------
 setwd("C:/Users/LapOne MX/OneDrive/Documents/GobMex/Distritales/TAMPS08_20260303")
+
+#Instrucción para correr el script con output mínimo en la consola para minimizar el tiempo de ejecución
+#source("DISTRITOS_FEDERALES_TAMPS-8.R", echo = FALSE, verbose = FALSE)
 
 #ARCHIVO SAV--------------------------------------------------------------------
 archivo_sav <- list.files(path = "C:/Users/LapOne MX/OneDrive/Documents/GobMex/Distritales/TAMPS08_20260303", pattern = "\\.sav$", full.names = TRUE)[1]
