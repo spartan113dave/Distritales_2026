@@ -3557,6 +3557,12 @@ T32_P42_medio_comunicacion <- funcion_opciones(datos_factor,V3149,
 #P43 Red social pertenece-----------------------------------------------------------------------------------------------------------------------------------
 niveles_P43 <- c("Sí pertenece", "No pertenece", "No sabe / No recuerda", "No contestó")
 
+datos_factor <- datos_factor %>%
+  mutate(across(c(V5283, V5284, V5285, V5286),
+                ~ ifelse(. == "No sabe",
+                         "No sabe / No recuerda",
+                         .)))
+
 vars_P43 <- c("V5283","V5284","V5285","V5286")
 nombres_P43 <- c("Facebook","Twitter o X","Instagram","TikTok")
 
@@ -3568,8 +3574,13 @@ T33_P43_redes
 niveles_P43B <- c("No la usa a diario","1 o 2 veces al día","3 o 4 veces al día","Más de 4 veces al día",
                   "No sabe / No recuerda","No contestó")
 
-vars_P43B <- c("V5287","V5288","V5289","V5290")
+datos_factor <- datos_factor %>%
+  mutate(across(c(V5287, V5288, V5289, V5290),
+                ~ ifelse(. == "No sabe",
+                         "No sabe / No recuerda",
+                         .)))
 
+vars_P43B <- c("V5287","V5288","V5289","V5290")
 nombres_P43B <- c("Facebook","Twitter o X","Instagram","TikTok")
 
 T34_P43B_redes <- tabla_redes_usa(datos_factor,vars_P43B,nombres_P43B,niveles_P43B,pond)
