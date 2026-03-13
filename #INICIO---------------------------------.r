@@ -5841,6 +5841,102 @@ G89.9_T84_puntaje_actores_nueva <- T84_puntaje_actores_nueva %>% gt()%>%
 G89.9_T84_puntaje_actores_nueva
 gtsave(G89.9_T84_puntaje_actores_nueva,filename = "G9_T84_puntaje_actores_nueva.png", path = "RESULTADOS/GRAFICOS/CAREOS",zoom=4)
 
+#G89.9_T84_puntaje_actores_original------------------------------------------------------------------------------------------------------------------------------------------------------
+
+G89.9_T84_puntaje_actores_original <- T84_puntaje_actores %>% gt()%>%
+  cols_width(everything() ~ px(75))%>%
+  cols_width(Sí ~ px(95))%>%
+  cols_width( Personaje ~ px(170))%>%
+  #poner superindices a las labels de cols
+  cols_label(
+    `Sí lo conoce` = md ("Conocimiento"),
+    `Buena` =md("Opinión <br> positiva^1^ <br> *Buena <br> [Escala de 3] <br> Valor=2*"),
+    honesto = md("Honesto^2^ <br> *Mucho + <br> ½ Algo <br> [Escala de 4] <br> Valor=1.25*"),
+    cercano = md("Cercano a la <br> gente^3^ <br> *Mucho + ½ Algo <br> [Escala de 4]<br>  Valor=0.25*"),
+    `conoce` = md("Conoce el <br>estado^4^ <br>*Mucho + ½ Algo <br>[Escala de 4] <br>Valor=0.25*"),
+    cumple = md("Cumple lo que <br>dice^5^ <br>*Mucho +<br> ½ Algo <br>[Escala de 4]<br> Valor=0.25*"),
+    Sí = md("Buen(a) candidato(a)<br> para diputado(a) federal^6^<br> *Sí <br>[Escala de 2] <br>Valor=1*"),
+    Votaría = md("Votaría^7^<br>*Valor=2*"),
+    Porcentaje =md("Preferencia <br> candidato de <br> MORENA^8^<br>*Valor=3*")
+  )%>% 
+  #estilo de fuente gral
+  tab_style(
+    style = list(cell_text(font = "Geomanist"),
+                 cell_borders(
+                   sides = c("left","top","bottom","right"),     
+                   color = "#ffffff", 
+                   weight = px(1.5))     
+    ),    
+    locations = list(
+      cells_body(),          
+      cells_column_labels(),
+      cells_title()
+    )
+  )%>%
+  #formato encabezado
+  tab_style(
+    style = list(
+      cell_fill(color = "#52786D"),
+      cell_text(color = "#ffffff",align = "center",v_align = "middle",weight = "bold")),
+    locations = cells_column_labels()
+  )%>%
+  #fondo de filas
+  tab_style(
+    style = list(
+      cell_fill(color = "#F5F5F6") ,
+      cell_text(color = "#5F5F5F",weight = "normal")
+    ),
+    locations = cells_body(rows = seq(2, nrow(T84_puntaje_actores), by = 2))
+  ) %>%
+  #fondo de filas
+  tab_style(
+    style = list(
+      cell_fill(color = "#EAEBED"),
+      cell_text(color = "#5F5F5F",weight = "normal")
+    ),
+    locations = cells_body(rows = seq(1, nrow(T84_puntaje_actores), by = 2))
+  )%>%
+  #alineamos porcentajes
+  tab_style(
+    style = list(
+      cell_text(align = "center")
+    ),
+    locations = cells_body(columns = (2:ncol(T84_puntaje_actores)))
+  )%>%
+  #formato columna puntajes
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")),
+    locations = cells_body(columns = (ncol(T84_puntaje_actores)))
+  )%>%
+  #cambiamos a negrito los puntajes
+  text_transform(
+    locations = cells_body(columns = everything()),
+    fn = function(x) {
+      x <- gsub("\n", "<br>", x) 
+      gsub("(<br>)(.*)", "<br><b>\\2</b>", x) 
+    }
+  )%>%
+  tab_options(
+    .,
+    table.font.size = 13, 
+    column_labels.font.size = 9,
+    # table.font.weight = "normal",
+    # table.font.style = "normal",
+    column_labels.border.top.color = "#ffffff",
+    column_labels.border.bottom.color = "#ffffff",
+    table_body.hlines.color = "#ffffff",
+    data_row.padding = px(4),
+    table.border.bottom.color = "#ffffff",
+    table.border.bottom.width = px(3),
+    column_labels.padding = px(9),
+    column_labels.padding.horizontal = px(1)
+  )
+
+G89.9_T84_puntaje_actores_original
+gtsave(G89.9_T84_puntaje_actores_original,filename = "G9_T84_puntaje_actores_original.png", path = "RESULTADOS/GRAFICOS/CAREOS",zoom=4)
+
+
 #Finalizador del cronómetro
 endtime <- Sys.time()
 runtime <- endtime-starttime
