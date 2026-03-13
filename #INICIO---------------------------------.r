@@ -4330,7 +4330,7 @@ G19_T45_P22_Preferencia_intencion <- T45_P22_Preferencia_intencion %>% gt()%>%
     )
 
 G19_T45_P22_Preferencia_intencion
-gtsave(G19_T45_P22_Preferencia_intencion,filename = "G19_T45_P22_Preferencia_intencion.PNG", path = "RESULTADOS/GRAFICOS/CAREOS",zoom = 4)
+gtsave(G19_T45_P22_Preferencia_intencion,filename = "G19_T45_P22_Preferencia_intencion.PNG", path = "RESULTADOS/GRAFICOS",zoom = 4)
 
 
 #G20_T23_P33_revocacion--------------------------------------------------------------------------------------------------------------------------------------------
