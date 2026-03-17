@@ -1436,7 +1436,12 @@ T67_actores
 T67_actores_nueva <- T67_actores
 
 #🛑-🛑-🛑-CAMBIO PARA TERCERA RONDA SALDO-🛑-🛑-🛑------------------------------------
-T67_actores_nueva$saldo <- T67_actores_nueva$Buena - T67_actores_nueva$Mala
+columnas_revisar <- names(T67_actores_nueva)
+for(col in columnas_revisar) {
+    T67_actores_nueva[[col]][T67_actores_nueva[[col]] == 0] <- 0.001
+}
+
+T67_actores_nueva$saldo <- (T67_actores_nueva$Buena / T67_actores_nueva$Mala) * T67_actores_nueva$`Sí lo conoce`
 
 T67_actores_nueva
 
